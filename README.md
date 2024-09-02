@@ -1,6 +1,6 @@
 ## Custom Helm Chart for vitepress
 
-See [Vitepress Complete Guide](https://docs.devops.bayern/nodejs/vitepress.html)
+See [Vitepress Complete Guide](https://docs.devops.bayern/nodejs/vitepress.html) on my site [docs.devops.bayern](docs.devops.bayern)
 
 Values must be adjustet for your needs.
 
@@ -11,7 +11,7 @@ image:
   repository: # example ghcr.io/<account>/docs 
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "1.1"
+  tag: ""
   ```
 
 ## Create kubernetes image pull secret
@@ -34,7 +34,7 @@ kubectl create secret docker-registry dockerimg \
 ## Ingress 
 
 Please set your domain or subdomain.<br>
-Cert-Manager is required. See 
+Cert-Manager is required. See [here how to install and create cluster-issuer](https://docs.devops.bayern/rancher/rancher.html#cert-manager).
 
 ```yaml
 ingress:
@@ -54,3 +54,41 @@ ingress:
       hosts:
         - <domain or subdoamin>
 ```
+
+All other values ​​can remain unchanged.
+
+## Deploy helm chart to kubernetes
+
+```shell
+cd < on your helm chart directory >
+```
+
+```shell
+helm install <release name> . -f values.yaml -n <namespace>
+```
+Example:
+
+```shell
+helm install docs . -f values.yaml -n docs
+```
+
+## Cheking if all kubernetes resources are up and running
+
+```shell
+kubectl get all -n docs 
+```
+```shel
+NAME                       READY   STATUS    RESTARTS   AGE
+pod/docs-8cf5cd5bd-xzmm5   1/1     Running   0          7m48s
+
+NAME           TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)   AGE
+service/docs   ClusterIP   10.43.136.15   <none>        80/TCP    7m48s
+
+NAME                   READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/docs   1/1     1            1           7m48s
+
+NAME                             DESIRED   CURRENT   READY   AGE
+replicaset.apps/docs-8cf5cd5bd   1         1         1       7m48s
+```
+
+Thats it. Have fun 😃

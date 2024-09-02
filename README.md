@@ -1,6 +1,6 @@
 ## Custom Helm Chart for vitepress
 
-See [Vitepress Complete Guide](https://docs.devops.bayern/nodejs/vitepress.html) on my site [docs.devops.bayern](docs.devops.bayern)
+See <a href="https://docs.devops.bayern/nodejs/vitepress.html" target="_blank">Vitepress Complete Guide</a> on my site.
 <img src="https://docs.devops.bayern/devops.png" width="100" height="100">
 
 Values must be adjusted for your needs.
@@ -76,7 +76,7 @@ helm install docs . -f values.yaml -n docs
 ## Cheking if all kubernetes resources are up and running
 
 ```shell
-kubectl get all -n docs 
+kubectl get all -n < your namespace >
 ```
 ```shel
 NAME                       READY   STATUS    RESTARTS   AGE
@@ -92,4 +92,4 @@ NAME                             DESIRED   CURRENT   READY   AGE
 replicaset.apps/docs-8cf5cd5bd   1         1         1       7m48s
 ```
 
-Thats it. Have fun 😃
+Thats it. Have fun 😃 🥳

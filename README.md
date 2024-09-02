@@ -1,8 +1,9 @@
 ## Custom Helm Chart for vitepress
 
 See [Vitepress Complete Guide](https://docs.devops.bayern/nodejs/vitepress.html) on my site [docs.devops.bayern](docs.devops.bayern)
+<img src="https://docs.devops.bayern/devops.png" width="100" height="100">
 
-Values must be adjustet for your needs.
+Values must be adjusted for your needs.
 
 ## Docker Image
 

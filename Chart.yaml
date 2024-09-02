@@ -5,5 +5,4 @@ type: application
 version: 0.1.4
 appVersion: "1.16.0"
 maintainers:
-- email: tron4x
-  name: tron4x
+  - name: tron4x https://github.com/tron4x
